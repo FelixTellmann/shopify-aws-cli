@@ -20,7 +20,7 @@
     "node": ">=14.0.0"
   },
   "bin": {
-    "create-deckdeckgo": "dist/index.js"
+    "shopify-aws": "dist/index.js"
   },
   "devDependencies": {
     "@types/cli-spinner": "^0.2.0",
