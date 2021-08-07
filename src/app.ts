@@ -105,7 +105,7 @@ const replaceAnswers = async (answers: Answers) => {
     `${answers.folder}/webpack.config.js`,
   ];
 
-  for (const filePath of replaceResources) {
+  /* for (const filePath of replaceResources) {
     let data: string = (await readFile(filePath)).toString("utf8");
 
     data = data.replace(/{{DECKDECKGO_TITLE}}/g, answers.name);
@@ -117,5 +117,5 @@ const replaceAnswers = async (answers: Answers) => {
     data = data.replace(/{{DECKDECKGO_AUTHOR}}/g, answers.name);
 
     await writeFile(filePath, data);
-  }
+  }*/
 };
