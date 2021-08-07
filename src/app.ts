@@ -23,7 +23,7 @@ export const initApp = async () => {
     .replace(/-$/, "")
     .replace(/^-/, "");
 
-  await createPresentation({ name, folder });
+  await createApp({ name, folder });
 
   console.log("Coolio, Your presentation is initialized.\n");
 
@@ -56,7 +56,7 @@ const prompt = (): Promise<Answers> => {
   return inquirer.prompt(questions);
 };
 
-const info = ({ folder, name }: Answers) => {
+const info = ({ folder }: Answers) => {
   console.log(
     `\nRun ${cyan("yarn shopify")} in the newly created folder ${cyan(
       folder
@@ -64,7 +64,7 @@ const info = ({ folder, name }: Answers) => {
   );
 };
 
-const createPresentation = async (answers: Answers) => {
+const createApp = async (answers: Answers) => {
   await downloadInstallPresentation(answers);
 
   await installDependencies(answers.folder, "2/3");
