@@ -3,7 +3,9 @@ import fs from "fs";
 import path from "path";
 
 export function downloadStarterMain() {
-  return downloadFromURL(`https://github.com/FelixTellmann/fx-style`);
+  return downloadFromURL(
+    `https://codeload.github.com/FelixTellmann/fx-style/zip/refs/heads/master`
+  );
 }
 
 function downloadFromURL(url: string, headers: RequestOptions = {}): Promise<Buffer> {
