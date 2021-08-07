@@ -3,9 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export function downloadStarterMain() {
-  return downloadFromURL(
-    `https://codeload.github.com/FelixTellmann/shopify/zip/refs/heads/master?token=AFIDM5SJC6HMB526VTISNWLBBZLKU`
-  );
+  return downloadFromURL(`https://github.com/FelixTellmann/fx-style`);
 }
 
 function downloadFromURL(url: string, headers: RequestOptions = {}): Promise<Buffer> {
