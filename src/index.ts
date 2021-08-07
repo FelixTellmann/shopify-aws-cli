@@ -1,10 +1,9 @@
 import { red } from "colorette";
+import { initApp } from "src/app";
 
 import { version } from "../package.json";
 
 import { cleanup, nodeVersionWarning } from "./utils/utils";
-import { initPresentation } from "./presentation";
-import { initTemplate } from "./template";
 
 const USAGE_DOCS = `Usage:
 npm init shopify-app
@@ -34,35 +33,12 @@ const run = async (): Promise<0 | void> => {
   nodeVersionWarning();
 
   try {
-    const answer: GoalAnswer = await ask();
-
-    if (answer.goal === "Presentation") {
-      await initPresentation();
-    } else if (answer.goal === "Template") {
-      await initTemplate();
-    } else {
-      console.log("No goal selected. Process aborted.");
-    }
+    await initApp();
   } catch (e) {
     console.error(`\n${red("✖")} ${e.message}\n`);
   }
 
   cleanup();
-};
-
-const ask = async (): Promise<GoalAnswer> => {
-  const question = [
-    {
-      type: "list",
-      name: "goal",
-      message: "What do you want to create?",
-      choices: ["Presentation", "Template"],
-    },
-  ];
-
-  const inquirer = require("inquirer");
-
-  return inquirer.prompt(question);
 };
 
 (async () => {

@@ -1,16 +1,14 @@
 [![npm][npm-badge]][npm-badge-url]
 [![license][npm-license]][npm-license-url]
 
-[npm-badge]: https://img.shields.io/npm/v/create-deckdeckgo
-[npm-badge-url]: https://www.npmjs.com/package/create-deckdeckgo
-[npm-license]: https://img.shields.io/npm/l/create-deckdeckgo
-[npm-license-url]: https://github.com/deckgo/deckdeckgo/blob/master/cli/LICENSE
+[npm-badge]: https://img.shields.io/npm/v/shopify-aws-cli
+[npm-badge-url]: https://www.npmjs.com/package/shopify-aws-cli
+[npm-license]: https://img.shields.io/npm/l/shopify-aws-cli
+[npm-license-url]: https://github.com/FelixTellmann/shopify-aws-cli/blob/master/LICENSE
 
-# DeckDeckGo - CLI
+# Shopify AWS - CLI
 
-This project is the CLI of [DeckDeckGo].
-
-This CLI reuse many features of the [Stencil CLI](https://github.com/ionic-team/create-stencil).
+This project is the CLI of [Shopify AWS Starter app].
 
 ## Table of contents
 
@@ -18,6 +16,6 @@ This CLI reuse many features of the [Stencil CLI](https://github.com/ionic-team/
 
 ## License
 
-MIT © [David Dal Busco](mailto:david.dalbusco@outlook.com) and [Nicolas Mattia](mailto:nicolas@nmattia.com)
+MIT © [Felix Tellmann](mailto:felix@tellmann.co.za)
 
-[deckdeckgo]: https://deckdeckgo.com
+[Tellmann]: https://tellmann.co.za
