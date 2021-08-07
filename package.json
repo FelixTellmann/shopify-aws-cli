@@ -1,6 +1,6 @@
 {
   "name": "shopify-aws-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Create a new Shopify AWS starter app",
   "main": "dist/index.js",
   "scripts": {
