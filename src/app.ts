@@ -6,8 +6,8 @@ import { Spinner } from "cli-spinner";
 
 import { rimraf } from "./utils/utils";
 import { downloadStarterMain } from "./utils/download";
-import { unZipBuffer } from "./utils/unzip";
-import { installDependencies } from "./utils/install";
+import { mkdirp, unZipBuffer } from "./utils/unzip";
+import { installDependencies, setShopifyApp } from "./utils/install";
 
 interface Answers {
   folder: string;
@@ -65,6 +65,14 @@ const info = ({ folder }: Answers) => {
 };
 
 const createApp = async (answers: Answers) => {
+  // 1. Remove dir
+  rimraf(answers.folder);
+  mkdirp("dummyFolderFunnyName", () => {
+    console.log(`dummyFolderFunnyName Created`);
+  });
+
+  await setShopifyApp(`dummyFolderFunnyName`, "2/3");
+
   await downloadInstallApp(answers);
 
   await installDependencies(answers.folder, "2/3");
@@ -77,10 +85,7 @@ const downloadInstallApp = async (answers: Answers) => {
   loading.setSpinnerString(18);
   loading.start();
 
-  // 1. Remove dir
-  rimraf(answers.folder);
-
-  // 2. Download starter
+  //  Download starter
   const buffer = await downloadStarterMain();
   await unZipBuffer(buffer, answers.folder);
 

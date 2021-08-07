@@ -57,7 +57,7 @@ function handleZipFile(projectName: string, resolve: any, reject: any) {
   };
 }
 
-function mkdirp(dir: string, cb: any) {
+export function mkdirp(dir: string, cb: any) {
   if (dir === ".") return cb();
   fs.stat(dir, err => {
     if (err === null) return cb(); // already exists
