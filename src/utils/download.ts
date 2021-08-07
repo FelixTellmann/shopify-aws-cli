@@ -9,8 +9,9 @@ export function downloadStarterMain() {
 function downloadFromURL(url: string, headers: RequestOptions = {}): Promise<Buffer> {
   return new Promise<Buffer>((resolve, reject) => {
     get(url, headers, res => {
+      console.log(res, url);
       if (res.statusCode === 302) {
-        downloadFromURL(res.headers.location!).then(resolve, reject);
+        downloadFromURL(res.headers.location).then(resolve, reject);
       } else {
         const data: any[] = [];
 
