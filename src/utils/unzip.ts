@@ -4,6 +4,7 @@ import path from "path";
 import { fromBuffer } from "yauzl";
 
 export function unZipBuffer(buffer: Buffer, projectName: string) {
+  console.log(projectName);
   return new Promise((resolve, reject) => {
     fromBuffer(buffer, { lazyEntries: true }, handleZipFile(projectName, resolve, reject));
   });

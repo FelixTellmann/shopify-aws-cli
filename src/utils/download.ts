@@ -1,9 +1,8 @@
 import { get, RequestOptions } from "https";
 import fs from "fs";
-import path from "path";
 
 export function downloadStarterMain() {
-  return downloadFromURL(`https://github.com/FelixTellmann/fx-style/archive/refs/heads/master.zip`);
+  return downloadFromURL(`https://github.com/FelixTellmann/shopify/archive/master.zip`);
 }
 
 function downloadFromURL(url: string, headers: RequestOptions = {}): Promise<Buffer> {
@@ -22,29 +21,6 @@ function downloadFromURL(url: string, headers: RequestOptions = {}): Promise<Buf
         res.on("error", reject);
       }
     });
-  });
-}
-
-export function downloadToFile(url: string, folder: string, fileName: string) {
-  return new Promise<void>((resolve, reject) => {
-    const fileStream = fs.createWriteStream(folder + path.sep + fileName);
-
-    fileStream
-      .on("open", () => {
-        get(url, res => {
-          res.on("error", err => {
-            reject(err);
-          });
-
-          res.pipe(fileStream);
-        });
-      })
-      .on("error", err => {
-        reject(err);
-      })
-      .on("finish", () => {
-        resolve();
-      });
   });
 }
 

@@ -65,14 +65,14 @@ const info = ({ folder }: Answers) => {
 };
 
 const createApp = async (answers: Answers) => {
-  await downloadInstallPresentation(answers);
+  await downloadInstallApp(answers);
 
   await installDependencies(answers.folder, "2/3");
 
   await updatePresentation(answers);
 };
 
-const downloadInstallPresentation = async (answers: Answers) => {
+const downloadInstallApp = async (answers: Answers) => {
   const loading = new Spinner(bold("[1/3] Creating your presentation..."));
   loading.setSpinnerString(18);
   loading.start();
