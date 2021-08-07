@@ -28,9 +28,23 @@ export function npm(command: string, projectPath: string, stdio: any = "ignore")
     childrenProcesses.push(p);
   });
 }
+
 export function yarn(command: string, projectPath: string, stdio: any = "ignore") {
   return new Promise<void>((resolve, reject) => {
     const p = spawn("yarn", [command], {
+      shell: true,
+      stdio,
+      cwd: projectPath,
+    });
+    p.once("exit", () => resolve());
+    p.once("error", reject);
+    childrenProcesses.push(p);
+  });
+}
+
+export function cmd(command: string, projectPath: string, stdio: any = "ignore") {
+  return new Promise<void>((resolve, reject) => {
+    const p = spawn(command, {
       shell: true,
       stdio,
       cwd: projectPath,
